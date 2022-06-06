@@ -1,0 +1,4 @@
+*.fls
+*(busy)
+*.aux
+*.fdb_latexmk
