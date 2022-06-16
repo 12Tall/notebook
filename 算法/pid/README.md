@@ -28,8 +28,10 @@ class PosPIDController:
 $$\left\{\begin{array}{lllll}
     u(k) & = & K_pe(k) & + &K_i\sum\limits_{i=0}^ke(i)& +& K_d[e(k)-e(k-1)] \\
     u(k-1) & = & K_pe(k-1)& +& K_i\sum\limits_{i=0}^{k-1}e(i)& +& K_d[e(k-1)-e(k-2)] 
-\end{array}\right. \\\\
-得：\begin{array}{ll}
+\end{array}\right.$$
+
+得：
+$$\begin{array}{ll}
     \Delta u(k) & =  u(k) - u(k-1) \\
     &= K_p[e(k) - e(k-1)] + K_ie(k) + K_d[e(k)-2e(k-1)+e(k-2)]
 \end{array}
