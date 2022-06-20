@@ -22,17 +22,15 @@ y(x_{n+1}) & = & y(x_n) + \frac{h}{2}
 $因为无法预知函数未来的斜率，所以只能以当前的斜率预估。$  
 
 以此类推，我们可以得到更高阶的龙格-库塔公式：  
->$$\begin{array}{lll}
+> $$\begin{array}{lll}
 K_1 & = & f(x_n, y_n) \\
-\\
 K_2 & = & f(x_n+\frac{h}{2}, y_n + \frac{h}{2}*K_1) \\
-\\
 K_3 & = & f(x_n+\frac{h}{2}, y_n + \frac{h}{2}*K_2) \\
-\\
-K_4 & = & f(x_n+h, y_n + h*K_3) \\ 
-\\ 
-y(x_{n+1}) & = & y(x_n) + \frac{h*(K_1+2K_2+2K_3+K_4)}{6}      
+K_4 & = & f(x_n+h, y_n + h*K_3) \\
+y(x_{n+1}) & = & y(x_n) + \frac{h*(K_1+2K_2+2K_3+K_4)}{6}
 \end{array}$$  
+> Latex 公式如果渲染不出来的话请看图片：
+> ![](img/rk4.svg)
 
 ## Python 代码  
 由推导过程可知，`Runge-Kutta` 的函数至少需要4 个参数：$x_n，y(x_n)，h，f(x,y)$。于是可以这样定义：  
@@ -136,6 +134,7 @@ class System:
         """
         绘制各状态变量随时间变化的曲线
         """
+        dt = self.dt
         ts = numpy.arange(self.start, self.end, dt)  # 时间轴
         j = 0
         for key in self.state:
